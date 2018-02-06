@@ -10,6 +10,7 @@ public class AnimalWalkTowards : AnimalBehavior
     {
         //logic
         manager.agent.destination = target.transform.position;
+        Debug.DrawLine(gameObject.transform.position, manager.agent.destination, Color.blue); 
     }
     public override bool CheckBehavior(AnimalBehaviorManager manager)
     {
@@ -32,6 +33,6 @@ public class AnimalWalkTowards : AnimalBehavior
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
