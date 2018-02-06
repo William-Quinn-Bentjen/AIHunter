@@ -358,7 +358,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1406725474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.47, y: 1.55, z: 0}
+  m_LocalPosition: {x: 21.39, y: 9.54, z: 0}
   m_LocalScale: {x: 1, y: 1.5276959, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -442,9 +442,11 @@ GameObject:
   - component: {fileID: 1594335464}
   - component: {fileID: 1594335469}
   - component: {fileID: 1594335468}
+  - component: {fileID: 1594335470}
+  - component: {fileID: 1594335471}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: Hunter
+  m_TagString: Hunter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -510,7 +512,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594335463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.937, z: 0}
+  m_LocalPosition: {x: -29.9, y: 0.937, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -524,11 +526,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1594335463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6cc3795dd2c3b44199c262af170c8dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b1e1e07b6f61e6f4caefb7b733226837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1406725474}
-  length: 10
+  target: {fileID: 0}
+  length: 15
+  wanderRadius: 100
+  wanderTimer: 3
 --- !u!195 &1594335469
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -538,7 +542,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -550,3 +554,71 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1594335470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594335463}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d424e3c39e4e8224d988f4cc73ece44f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseTarget: {fileID: 0}
+--- !u!114 &1594335471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594335463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7b405f6308fa94d85c1f0a6fa4f748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InMag: 5
+  MaxInMag: 5
+  AmmoReserve: 50
+  InfiniteAmmoReserve: 0
+  MaxAmmoReserve: 50
+  ReloadTime: 5
+  FireRPM: 60
+  RayCastDamage: 1
+  RayCastLength: 20
+  OnFire:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: QuinnGun+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEmptyMag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1594335471}
+        m_MethodName: ReloadStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: QuinnGun+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDryFire:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: QuinnGun+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnReloadStart:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: QuinnGun+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnReloadComplete:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: QuinnGun+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
