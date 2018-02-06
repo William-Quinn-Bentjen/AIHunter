@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Hunter
   - KeyArea
   - KeyAreaHolder
+=======
+  - Animal
+  - Hunter
+>>>>>>> origin/jacob
   layers:
   - Default
   - TransparentFX
