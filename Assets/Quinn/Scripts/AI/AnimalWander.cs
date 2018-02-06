@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class AnimalWander : AnimalBehavior {
-    public float raduis;
-    public float jitter;
-    public float distance;
-    [Header("read only")]
-    public Vector3 target;
+    [Header("Wander settings")]
+    public float raduis = 3;
+    public float jitter = 1;
+    public float distance = 5;
+    [Header("How long to wander for")]
     //min and max time to wander in seconds
     public float minWanderTime = 1;
     public float maxWanderTime = 600;
+    [Header("READ ONLY")]
+    public Vector3 target;
     //private
     NavMeshAgent agent;
     float wanderTime = 0;

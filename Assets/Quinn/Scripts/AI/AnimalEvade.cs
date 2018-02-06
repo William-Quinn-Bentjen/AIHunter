@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AnimalEvade : AnimalBehavior
 {
-    //what to run from 
-    public GameObject target;
+    [Header("When does the animal think it's safe?")]
     //distance to stop evading at 
     public float SafeDistance = 10;
+    //what to run from 
+    [Header("READ ONLY")]
+    public GameObject target;
 
     public override void DoBehavior(AnimalBehaviorManager manager)
     {

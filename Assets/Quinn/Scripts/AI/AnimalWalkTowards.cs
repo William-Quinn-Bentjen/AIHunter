@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalWalkTowards : AnimalBehavior
 {
-
+    [Header("READ ONLY")]
     public GameObject target;
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
