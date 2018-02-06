@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class AnimalEvade : AnimalBehavior
 {
+    //what to run from 
     public GameObject target;
     //distance to stop evading at 
     public float SafeDistance = 10;
-    //distance evade starts at
-    public float SpookDistance = 3;
 
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
+        //sets destination based on player position and target position (target is what it is running from)
         manager.agent.destination = transform.position + ((target.transform.position - gameObject.transform.position).normalized * -SafeDistance);
     }
     public override bool CheckBehavior(AnimalBehaviorManager manager)
     {
         //distance between animal and hunter
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        //can I stop running now?
+        //is the animal a "safe" distace away?
         if (distance >= SafeDistance)
         {
-            Debug.Log("I'm not run");
             return true;
         }
-        Debug.Log("I'm also not run");
         return false;
     }
     public override void UpdateBehavior(AnimalBehaviorManager manager)
