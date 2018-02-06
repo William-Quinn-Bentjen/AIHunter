@@ -96,7 +96,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
-    agentHeight: 2
+    agentHeight: 1
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
@@ -107,7 +107,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: f13a6ea41c9cf8245a9ddd187262cd96, type: 2}
 --- !u!1 &1029727452
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1029727452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.848, y: 0.57, z: -3.298}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &2001173408
 MeshRenderer:
@@ -348,7 +348,7 @@ Transform:
   m_GameObject: {fileID: 2001173407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.1199474, y: 5.119949, z: 5.119949}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 2028025534}
   - component: {fileID: 2028025532}
   - component: {fileID: 2028025539}
+  - component: {fileID: 2028025540}
   - component: {fileID: 2028025533}
   m_Layer: 0
   m_Name: Capsule
@@ -491,7 +492,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028025531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.09, y: 1, z: -2.066}
+  m_LocalPosition: {x: 3.09, y: 0.93, z: -10.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -509,8 +510,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1029727452}
-  SafeDistance: 10
+  SafeDistance: 14
   SpookDistance: 3
+--- !u!114 &2028025540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2028025531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e7b8d621778574c9341e073665ddb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1029727452}
 --- !u!1 &2060824910
 GameObject:
   m_ObjectHideFlags: 0
