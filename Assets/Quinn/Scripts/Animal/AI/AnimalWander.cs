@@ -15,13 +15,11 @@ public class AnimalWander : AnimalBehavior {
     [Header("READ ONLY")]
     public Vector3 target;
     //private
-    NavMeshAgent agent;
     float wanderTime = 0;
     float targetWanderTime;
 
     // Use this for initialization
     void Start () {
-        agent = GetComponent<NavMeshAgent>();
         targetWanderTime = Random.Range(minWanderTime, maxWanderTime);
 	}
     public override void UpdateBehavior(AnimalBehaviorManager manager)

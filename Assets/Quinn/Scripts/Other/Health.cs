@@ -11,7 +11,6 @@ public class Health : MonoBehaviour {
     public class MyEvent : UnityEvent { }
     public MyEvent OnOverHeal;
     public MyEvent OnZeroHP;
-    public MyEvent OnTestUpdate;
     public GameObject DeadAnimal;
 
     // Use this for initialization
@@ -21,7 +20,6 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        OnTestUpdate.Invoke();
 	}
 
     //used to deal damage (calls increment with a negitive value)
@@ -60,6 +58,5 @@ public class Health : MonoBehaviour {
         Destroy(gameObject);
         //create dead animal prefab where the animal was at
         Instantiate(DeadAnimal, DeathPos.position, DeathPos.rotation);
-        
     }
 }
