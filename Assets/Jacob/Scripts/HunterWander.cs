@@ -9,7 +9,7 @@ public class HunterWander : MonoBehaviour {
     NavMeshAgent agent;
     Vector3 Hunter;
     Vector3 fwd;
-    public float length = 5.0f;
+    public float length = 20.0f;
 
     public float wanderRadius;
     public float wanderTimer;
@@ -24,6 +24,7 @@ public class HunterWander : MonoBehaviour {
         Hunter = transform.position;
         fwd = transform.TransformDirection(Vector3.forward);
         timer = wanderTimer;
+        target = null;
 	}
     public static Vector3 RandomNavSphere(Vector3 origin, float distance, int layermask)
     {
