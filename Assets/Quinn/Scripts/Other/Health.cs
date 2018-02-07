@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class Health : MonoBehaviour {
     public int CurrentHP = 1;
@@ -10,6 +11,8 @@ public class Health : MonoBehaviour {
     public class MyEvent : UnityEvent { }
     public MyEvent OnOverHeal;
     public MyEvent OnZeroHP;
+    public MyEvent OnTestUpdate;
+    public GameObject DeadAnimal;
 
     // Use this for initialization
     void Start () {
@@ -18,7 +21,7 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        OnTestUpdate.Invoke();
 	}
 
     //used to deal damage (calls increment with a negitive value)
@@ -45,5 +48,18 @@ public class Health : MonoBehaviour {
         {
             OnOverHeal.Invoke();
         }
+    }
+
+    //used to disable the animal's script, as well as mark it as dead & ready to be picked up
+    public void KillAnimal()
+    {
+        Debug.Log("ANIMAL KILLED AT\n"+gameObject.transform.position);
+        //stores transform info so the dead animal doesn't spawn with it's live self inside it
+        Transform DeathPos = gameObject.transform;
+        //destroy live animal 
+        Destroy(gameObject);
+        //create dead animal prefab where the animal was at
+        Instantiate(DeadAnimal, DeathPos.position, DeathPos.rotation);
+        
     }
 }

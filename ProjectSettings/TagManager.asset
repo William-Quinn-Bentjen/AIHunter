@@ -8,6 +8,7 @@ TagManager:
   - Hunter
   - KeyAreaHolder
   - Animal
+  - DeadAnimal
   layers:
   - Default
   - TransparentFX
