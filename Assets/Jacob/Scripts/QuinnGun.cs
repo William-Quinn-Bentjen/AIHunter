@@ -54,7 +54,7 @@ public class QuinnGun : MonoBehaviour
                 if (hit.collider.tag == "Animal")
                 {
                     //deal damage to whatever we hit
-                    // hit.collider.GetComponent<Health>().TakeDamage(RayCastDamage);
+                    hit.collider.GetComponent<Health>().TakeDamage(RayCastDamage);
                 }
             }
 
