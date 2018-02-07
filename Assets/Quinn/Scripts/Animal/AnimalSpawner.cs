@@ -18,7 +18,7 @@ public class AnimalSpawner : MonoBehaviour {
         nextSpawnTime = Random.Range(minSpawnTimer, maxSpawnTimer);
         GameObject spawnedAnimal = Instantiate(Animal, transform.position, transform.rotation);
         spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den = gameObject;
-        Debug.Log("spawned an animal at \n" + transform.position);
+        //Debug.Log("spawned an animal at \n" + transform.position);
     }
 
 	// Use this for initialization

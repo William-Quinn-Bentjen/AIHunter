@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class AnimalBehaviorManager : MonoBehaviour
 {
+    [Header("REQUIRES A KEYAREA, KEYAREAHOLDER AND HUNTER TO WORK")]
     [HideInInspector]
     public Stack<AnimalBehavior> behaviors;
     AnimalBehavior currentBehaviour;
@@ -15,6 +16,7 @@ public class AnimalBehaviorManager : MonoBehaviour
     public GameObject Den;
     private GameObject hunter;
     public float SpookDist = 3;
+    public bool Agressive = false;
     private KeyAreas keyAreas;
     //behaviors
     [HideInInspector]
@@ -58,7 +60,7 @@ public class AnimalBehaviorManager : MonoBehaviour
         
         if (Vector3.Distance(hunter.transform.position, agent.gameObject.transform.position) <= SpookDist && currentBehaviour != evade)
         {
-            Debug.Log("ANIMAL SPOOKED");
+            //Debug.Log("ANIMAL SPOOKED");
             evade.target = hunter;
             behaviors.Push(evade);
         }
@@ -71,7 +73,7 @@ public class AnimalBehaviorManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("I have no behaviors, returning to den");
+                Debug.Log("animal has no behaviors, returning to den");
                 walkTo.target = Den;
                 behaviors.Push(walkTo);
             }

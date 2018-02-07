@@ -22,6 +22,21 @@ public class AnimalWalkTowards : AnimalBehavior
         //if my path is complete pop the behavior 
         if (PathComplete(manager))
         {
+            //did i just reach the den?
+            if (target == manager.Den)
+            {
+                //was the hunter chasing me?
+                GameObject hunter = GameObject.FindGameObjectWithTag("Hunter");
+                if (hunter.GetComponent<HunterWander>().target == gameObject)
+                {
+                    //tell the hunter to start wandering again
+                    hunter.GetComponent<HunterWander>().enabled = true;
+                    hunter.GetComponent<HunterChase>().enabled = false;
+                }
+                //reached den, despawning
+                Debug.Log("animal reached den and despawned");
+                Destroy(gameObject);
+            }
             manager.behaviors.Pop();
         }
     }
