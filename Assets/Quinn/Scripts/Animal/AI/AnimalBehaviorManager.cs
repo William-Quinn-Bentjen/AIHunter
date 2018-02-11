@@ -39,7 +39,7 @@ public class AnimalBehaviorManager : MonoBehaviour
         behaviors = new Stack<AnimalBehavior>();
         hunter = GameObject.FindGameObjectWithTag("Hunter");
         //behaviors.Push(evade);
-        walkTo.target = keyAreas.GetRandomArea();
+        walkTo.target = keyAreas.GetRandomArea(true,true,false);
         behaviors.Push(walkTo);
         behaviors.Push(wander);
     }
@@ -54,16 +54,17 @@ public class AnimalBehaviorManager : MonoBehaviour
         }
         else
         {
-            //just used for spook check below so no errors happen if the count is empty
+            //currentbehavior is just used to see if the behavior is evade or not check below so no errors happen if the count is empty
             currentBehaviour = wander;
         }
-        
+        //CHECK IF THE HUNTER IS CLOSE ENOUGH TO IT TO SPOOK IT
         if (Vector3.Distance(hunter.transform.position, agent.gameObject.transform.position) <= SpookDist && currentBehaviour != evade)
         {
             //Debug.Log("ANIMAL SPOOKED");
             evade.target = hunter;
             behaviors.Push(evade);
         }
+
         else
         {
             if (behaviors.Count > 0)
