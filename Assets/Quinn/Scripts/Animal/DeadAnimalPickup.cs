@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeadAnimalPickup : MonoBehaviour {
     public bool VisibleAtStart = false;
+    private GameObject hunter;
     private void OnTriggerEnter(Collider other)
     {
         PickupCheck(other);
@@ -22,15 +23,22 @@ public class DeadAnimalPickup : MonoBehaviour {
             {
                 //Debug.Log("hunter hit a dead animal");
                 //add to inventory
-                other.gameObject.GetComponent<HunterInv>().collectRabbitMeat();
+                hunter.GetComponent<HunterInv>().collectRabbitMeat();
+                hunter.GetComponent<HunterWander>().enabled = true;
+                hunter.GetComponent<HunterChase>().enabled = false;
             }
-            other.gameObject.GetComponent<HunterWander>().enabled = true;
-            other.gameObject.GetComponent<HunterChase>().enabled = false;
+            //was hunter walking to this object? if so tell him to wander instead
+            if (hunter.GetComponent<HunterChase>().enabled == true && hunter.GetComponent<HunterChase>().chaseTarget == gameObject)
+            {
+                hunter.GetComponent<HunterWander>().enabled = true;
+                hunter.GetComponent<HunterChase>().enabled = false;
+            }
             Destroy(gameObject);
         }
     }
     // Use this for initialization
     void Start () {
+        hunter = GameObject.FindGameObjectWithTag("Hunter");
         if (!VisibleAtStart)
         {
             GetComponent<Renderer>().enabled = false;

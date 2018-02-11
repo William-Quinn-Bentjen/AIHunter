@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114987021332826814}
   - component: {fileID: 114658198755598542}
   - component: {fileID: 54302952452532348}
+  - component: {fileID: 114476114089379196}
+  - component: {fileID: 114683829543742404}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Animal
@@ -118,6 +120,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SafeDistance: 5
   target: {fileID: 0}
+--- !u!114 &114476114089379196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867621514490116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58504b4f8b6cd14c999ccb74b945d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  StopDistance: 0
+  ProjectedDistance: 0.5
+  AttackDistance: 1
+  AttackDamage: 1
+  AttackSpeed: 1
 --- !u!114 &114479547218966658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +184,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114683829543742404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867621514490116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51db94aecb3c77e46b70de6f04d9d282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 10
+  viewAngle: 320
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Targets:
+  - Hunter
+  - DeadAnimal
+  - Animal
+  visibleTargets: []
 --- !u!114 &114932968094708644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,11 +221,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   Den: {fileID: 0}
-  SpookDist: 3
-  Agressive: 0
+  SpookDistance: 3
+  Agressive: 1
+  ChaseDistance: 4
+  vision: {fileID: 0}
   evade: {fileID: 0}
   walkTo: {fileID: 0}
   wander: {fileID: 0}
+  chase: {fileID: 0}
 --- !u!114 &114987021332826814
 MonoBehaviour:
   m_ObjectHideFlags: 1

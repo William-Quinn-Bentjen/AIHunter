@@ -15,18 +15,16 @@ public class AnimalSpawner : MonoBehaviour {
     [Header("NOTE if hunter is targeting animal it will automatically return to wander")]
     public MyEvent OnReturnToDen;
     //private
-    private GameObject DespawnZone;
     private float nextSpawnTime;
     private float spawnTimer;
 
     public void SpawnAnimal()
     {
-        DespawnZone = gameObject;
         spawnTimer = 0;
         nextSpawnTime = Random.Range(minSpawnTimer, maxSpawnTimer);
         GameObject spawnedAnimal = Instantiate(Animal, transform.position, transform.rotation);
         spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den = gameObject;
-        Debug.Log("spawned animal at " + spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den);
+        //Debug.Log("spawned animal at " + spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den);
         //Debug.Log("spawned an animal at \n" + transform.position);
     }
 

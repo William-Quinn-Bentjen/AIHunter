@@ -15,21 +15,40 @@ public class AnimalChase : AnimalBehavior {
     //time it takes to be ready to attack again
     public float AttackSpeed = 1;
     private float AttackSpeedTimer = 0;
+    private bool killedTarget = false;
+    private bool killedAnimal = false;
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
+        //if (target == null)
+        //{
+        //    Debug.Log("NULL BITCH");
+        //}
+        //update distance to target and timer on how offten the animal can attack
         UpdateDistance();
         UpdateAttackSpeedTimer();
         //is the animal in range and ready to attack?
         if (distance <= AttackDistance && AttackSpeedTimer >= AttackSpeed)
         {
             //deal damage if in range
-            target.GetComponent<Health>().IncrementHP(AttackDamage);
+            //Debug.Log("AGGRESSIVE ANIMAL ATTACKED " + target.name + " FOR " + AttackDamage + " DAMAGE\nHUNTER HP NOW " + target.GetComponent<Health>().CurrentHP);
+            //did I just kill the thing I was chasing?
+            if (target.GetComponent<Health>().CurrentHP-AttackDamage <= 0)
+            {
+                killedTarget = true;
+                if (target.tag == "Animal")
+                {
+                    killedAnimal = true;
+                }
+            }
+            target.GetComponent<Health>().IncrementHP(-AttackDamage);
         }
         manager.agent.destination = target.transform.position + (target.GetComponent<Rigidbody>().velocity.normalized * ProjectedDistance);
+        Debug.DrawLine(transform.position, manager.agent.destination, Color.red);
     }
     public override bool CheckBehavior(AnimalBehaviorManager manager)
     {
-        if (distance >= StopDistance)
+        //is the object past the stop distance and not in our vision?
+        if ((distance >= StopDistance && !manager.vision.visibleTargets.Contains(target.transform)) || killedTarget == true)
         {
             return true;
         }
@@ -41,10 +60,15 @@ public class AnimalChase : AnimalBehavior {
         if (CheckBehavior(manager))
         {
             manager.behaviors.Pop();
+            manager.GetComponent<FieldOfView>().FindVisibleTargets();
         }
     }
     private void UpdateDistance()
     {
+        if (target == null)
+        {
+            distance = StopDistance;
+        }
         distance = Vector3.Distance(target.transform.position, gameObject.transform.position);
     }
     private void UpdateAttackSpeedTimer()
