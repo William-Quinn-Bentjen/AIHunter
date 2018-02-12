@@ -5,6 +5,7 @@ using UnityEngine;
 public class HunterInv : MonoBehaviour {
 
     public int rabbitMeat;
+    public int rabbitMeatDrop;
 
 
 	// Use this for initialization
@@ -12,8 +13,19 @@ public class HunterInv : MonoBehaviour {
         rabbitMeat = 0;
 	}
 	
+    void Update()
+    {
+        rabbitMeatDrop = rabbitMeat;
+    }
+
 	public void collectRabbitMeat()
     {
-        rabbitMeat += 1;
+        rabbitMeat++;
+    }
+
+    public void rabbitDropOff()
+    {
+
+        rabbitMeat = 0;
     }
 }
