@@ -52,10 +52,13 @@ public class AnimalChase : AnimalBehavior {
     public override bool CheckBehavior(AnimalBehaviorManager manager)
     {
         GameObject test = target;
-        //is the object past the stop distance and not in our vision?
-        if (((distance >= StopDistance && !manager.vision.visibleTargets.Contains(target.transform)) || killedTarget == true) && test != null)
+        if (test != null)
         {
-            return true;
+            //is the object past the stop distance and not in our vision?
+            if (((distance >= StopDistance && !manager.vision.visibleTargets.Contains(target.transform)) || killedTarget == true) && test != null)
+            {
+                return true;
+            }
         }
         return false;
     }
