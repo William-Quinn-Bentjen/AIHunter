@@ -9,13 +9,25 @@ public class AnimalWalkTowards : AnimalBehavior
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
         //logic
-        manager.agent.destination = target.transform.position;
+        if (target != null)
+        {
+            manager.agent.destination = target.transform.position;
+        }
+        else
+        {
+            manager.agent.destination = gameObject.transform.position;
+        }
         Debug.DrawLine(gameObject.transform.position, manager.agent.destination, Color.blue); 
     }
     public override bool CheckBehavior(AnimalBehaviorManager manager)
     {
         //Condition
-        return PathComplete(manager);
+        if (target != null)
+        {
+            return PathComplete(manager);
+        }
+        return true;
+        
     }
     public override void UpdateBehavior(AnimalBehaviorManager manager)
     {

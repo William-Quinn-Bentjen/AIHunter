@@ -32,6 +32,7 @@ public class AnimalChase : AnimalBehavior {
             //is the animal in range and ready to attack?
             if (distance <= AttackDistance && AttackSpeedTimer >= AttackSpeed)
             {
+                AttackSpeedTimer = 0;
                 //deal damage if in range
                 //Debug.Log("AGGRESSIVE ANIMAL ATTACKED " + target.name + " FOR " + AttackDamage + " DAMAGE\nHUNTER HP NOW " + target.GetComponent<Health>().CurrentHP);
                 //did I just kill the thing I was chasing?
@@ -55,10 +56,15 @@ public class AnimalChase : AnimalBehavior {
         if (test != null)
         {
             //is the object past the stop distance and not in our vision?
-            if (((distance >= StopDistance && !manager.vision.visibleTargets.Contains(target.transform)) || killedTarget == true) && test != null)
+            if ((distance >= StopDistance && !manager.vision.visibleTargets.Contains(target.transform)) || killedTarget == true)
             {
                 return true;
             }
+        }
+        else
+        {
+
+            return true;
         }
         return false;
     }
