@@ -31,6 +31,8 @@ public class AnimalBehaviorManager : MonoBehaviour
     [HideInInspector]
     //only used if aggressive 
     public AnimalChase chase;
+    [Header("READ ONLY")]
+    public AnimalBehavior CurrentBehavior;
 
 
 
@@ -61,6 +63,7 @@ public class AnimalBehaviorManager : MonoBehaviour
     {
         if (behaviors.Count > 0)
         {
+            CurrentBehavior = behaviors.Peek();
             var currentBehavior = behaviors.Peek();
             //is the animal currently chasing or evading?
             if (currentBehavior == chase || currentBehavior == evade )
@@ -100,37 +103,42 @@ public class AnimalBehaviorManager : MonoBehaviour
                                     GameObject agressiontarget = vision.visibleTargets[0].gameObject;
                                     foreach (Transform target in vision.visibleTargets)
                                     {
-                                        if (target.gameObject.tag == "DeadAnimal")
+                                        if (target != null)
                                         {
-                                            foundDeadAnimal = true;
-                                            if (smallestDistance >= Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position)))
+
+                                            if (target.gameObject.tag == "DeadAnimal")
                                             {
-                                                smallestDistance = Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position));
-                                                agressiontarget = target.gameObject;
-                                            }
+                                                foundDeadAnimal = true;
+                                                if (smallestDistance >= Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position)))
+                                                {
+                                                    smallestDistance = Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position));
+                                                    agressiontarget = target.gameObject;
+                                                }
 
 
-                                        }
-                                        if (foundDeadAnimal == false && target.gameObject.tag == "Animal")
-                                        {
-                                            if (smallestDistance >= Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position)))
-                                            {
-                                                smallestDistance = Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position));
-                                                agressiontarget = target.gameObject;
                                             }
+                                            if (foundDeadAnimal == false && target.gameObject.tag == "Animal")
+                                            {
+                                                if (smallestDistance >= Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position)))
+                                                {
+                                                    smallestDistance = Mathf.Min(smallestDistance, Vector3.Distance(gameObject.transform.position, target.gameObject.transform.position));
+                                                    agressiontarget = target.gameObject;
+                                                }
+                                            }
+                                            
                                         }
-                                        if (foundDeadAnimal)
-                                        {
-                                            //sets walkto target to the closest animal if no dead animals or hunters were found
-                                            walkTo.target = agressiontarget;
-                                            behaviors.Push(walkTo);
-                                        }
-                                        else
-                                        {
-                                            //sets chase target to the closest animal if no dead animals or hunters were found
-                                            chase.target = agressiontarget;
-                                            behaviors.Push(chase);
-                                        }
+                                    }
+                                    if (foundDeadAnimal)
+                                    {
+                                        //sets walkto target to the closest animal if no dead animals or hunters were found
+                                        walkTo.target = agressiontarget;
+                                        behaviors.Push(walkTo);
+                                    }
+                                    else
+                                    {
+                                        //sets chase target to the closest animal if no dead animals or hunters were found
+                                        chase.target = agressiontarget;
+                                        behaviors.Push(chase);
                                     }
                                 }
                                 

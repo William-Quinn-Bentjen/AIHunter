@@ -13,6 +13,10 @@ public class KeyAreas : MonoBehaviour {
     {
         RefreshTaggedKeyAreas();
     }
+    private void Update()
+    {
+        RefreshTaggedKeyAreas();
+    }
 
     //returns a random area
     public GameObject GetRandomArea(bool includeTaggedKeyAreas = true, bool includeDens = true, bool includeHunterCamps = true)
@@ -35,6 +39,9 @@ public class KeyAreas : MonoBehaviour {
     //refreshes key areas
     public void RefreshTaggedKeyAreas()
     {
+        TaggedKeyAreas = new List<GameObject>();
+        Dens = new List<GameObject>();
+        HunterCamps = new List<GameObject>();
         foreach (GameObject area in GameObject.FindGameObjectsWithTag("KeyArea"))
         {
             TaggedKeyAreas.Add(area);
@@ -45,7 +52,7 @@ public class KeyAreas : MonoBehaviour {
         }
         foreach (GameObject area in GameObject.FindGameObjectsWithTag("HunterCamp"))
         {
-            Dens.Add(area);
+            HunterCamps.Add(area);
         }
     }
 }

@@ -52,7 +52,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -68,7 +67,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -107,6 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe5a407e6401194ead6f42c7ef5b65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animal: {fileID: 0}
+  Animal: {fileID: 1867621514490116, guid: 42d4519ff65fa1c4fb9a1c78d43cb0bf, type: 2}
   minSpawnTimer: 3
   maxSpawnTimer: 6
+  OnReturnToDen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AnimalSpawner+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
