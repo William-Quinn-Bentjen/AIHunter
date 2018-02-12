@@ -9,41 +9,41 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1867621514490116}
+  m_RootGameObject: {fileID: 1518377274291742}
   m_IsPrefabParent: 1
---- !u!1 &1867621514490116
+--- !u!1 &1518377274291742
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4207258290421212}
-  - component: {fileID: 33386648581608026}
-  - component: {fileID: 136177654622659130}
-  - component: {fileID: 23143596100880706}
-  - component: {fileID: 114479547218966658}
-  - component: {fileID: 195007549251505452}
-  - component: {fileID: 114932968094708644}
-  - component: {fileID: 114260921273431032}
-  - component: {fileID: 114987021332826814}
-  - component: {fileID: 114658198755598542}
-  - component: {fileID: 54302952452532348}
-  - component: {fileID: 114476114089379196}
-  - component: {fileID: 114683829543742404}
+  - component: {fileID: 4012188651740674}
+  - component: {fileID: 33587641151220338}
+  - component: {fileID: 136010648699964978}
+  - component: {fileID: 23618007354802740}
+  - component: {fileID: 114274124627488042}
+  - component: {fileID: 195519494000542066}
+  - component: {fileID: 114916473935542106}
+  - component: {fileID: 114943599471699962}
+  - component: {fileID: 114857442774551510}
+  - component: {fileID: 114757184868842754}
+  - component: {fileID: 54648220989759924}
+  - component: {fileID: 114176027857428876}
+  - component: {fileID: 114776069379138588}
   m_Layer: 0
-  m_Name: Animal
+  m_Name: AnimalAgressive
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4207258290421212
+--- !u!4 &4012188651740674
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.01, y: 0.93, z: 10.94}
   m_LocalScale: {x: 0.88166445, y: 0.8816641, z: 0.8816641}
@@ -51,12 +51,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23143596100880706
+--- !u!23 &23618007354802740
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,19 +85,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33386648581608026
+--- !u!33 &33587641151220338
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54302952452532348
+--- !u!54 &54648220989759924
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -107,25 +107,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114260921273431032
+--- !u!114 &114176027857428876
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7bcb0a7fd76d3940a1269d0b246ccbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SafeDistance: 5
-  target: {fileID: 0}
---- !u!114 &114476114089379196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d58504b4f8b6cd14c999ccb74b945d2e, type: 3}
@@ -137,12 +124,12 @@ MonoBehaviour:
   AttackDistance: 1
   AttackDamage: 1
   AttackSpeed: 1
---- !u!114 &114479547218966658
+--- !u!114 &114274124627488042
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70c79d245b1c4a84d8e5642a9cc60f37, type: 3}
@@ -158,7 +145,7 @@ MonoBehaviour:
   OnZeroHP:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114479547218966658}
+      - m_Target: {fileID: 114274124627488042}
         m_MethodName: KillAnimal
         m_Mode: 1
         m_Arguments:
@@ -172,24 +159,24 @@ MonoBehaviour:
     m_TypeName: Health+MyEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   DeadAnimal: {fileID: 1930901364774732, guid: b2980cdbae8defa4c80a52a5eaefc39b, type: 2}
---- !u!114 &114658198755598542
+--- !u!114 &114757184868842754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2e7b8d621778574c9341e073665ddb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
---- !u!114 &114683829543742404
+--- !u!114 &114776069379138588
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51db94aecb3c77e46b70de6f04d9d282, type: 3}
@@ -208,33 +195,12 @@ MonoBehaviour:
   - DeadAnimal
   - Animal
   visibleTargets: []
---- !u!114 &114932968094708644
+--- !u!114 &114857442774551510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37abf1f902eaff845a691a5c8182b222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  Den: {fileID: 0}
-  SpookDistance: 3
-  Agressive: 0
-  ChaseDistance: 4
-  vision: {fileID: 0}
-  evade: {fileID: 0}
-  walkTo: {fileID: 0}
-  wander: {fileID: 0}
-  chase: {fileID: 0}
---- !u!114 &114987021332826814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c71113320549ad489a92281052a2860, type: 3}
@@ -246,12 +212,46 @@ MonoBehaviour:
   minWanderTime: 1
   maxWanderTime: 10
   target: {x: 0, y: 0, z: 0}
---- !u!136 &136177654622659130
+--- !u!114 &114916473935542106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518377274291742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37abf1f902eaff845a691a5c8182b222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  Den: {fileID: 0}
+  SpookDistance: 3
+  Agressive: 1
+  ChaseDistance: 4
+  vision: {fileID: 0}
+  evade: {fileID: 0}
+  walkTo: {fileID: 0}
+  wander: {fileID: 0}
+  chase: {fileID: 0}
+--- !u!114 &114943599471699962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518377274291742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7bcb0a7fd76d3940a1269d0b246ccbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SafeDistance: 5
+  target: {fileID: 0}
+--- !u!136 &136010648699964978
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -259,12 +259,12 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &195007549251505452
+--- !u!195 &195519494000542066
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867621514490116}
+  m_GameObject: {fileID: 1518377274291742}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
