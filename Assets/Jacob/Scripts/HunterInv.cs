@@ -25,7 +25,6 @@ public class HunterInv : MonoBehaviour {
 
     public void rabbitDropOff()
     {
-
         rabbitMeat = 0;
     }
 }

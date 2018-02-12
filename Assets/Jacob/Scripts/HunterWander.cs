@@ -81,5 +81,6 @@ public class HunterWander : MonoBehaviour {
             Debug.DrawRay(transform.position, fwd * length, Color.green);
             fwd = Quaternion.AngleAxis(90 / numOfRays, Vector3.up) * fwd;
         }
-	}
+
+    }
 }
