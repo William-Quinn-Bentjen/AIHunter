@@ -47,6 +47,5 @@ public class HunterChase : MonoBehaviour {
             this.enabled = false;
             chaseTarget = null;
         }
-        
 	}
 }

@@ -433,6 +433,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114942976324621006, guid: fdc5b8b949f0c9b4eabcc5a88b121771,
+        type: 2}
+      propertyPath: Animal
+      value: 
+      objectReference: {fileID: 1867621514490116, guid: 42d4519ff65fa1c4fb9a1c78d43cb0bf,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdc5b8b949f0c9b4eabcc5a88b121771, type: 2}
   m_IsPrefabParent: 0
