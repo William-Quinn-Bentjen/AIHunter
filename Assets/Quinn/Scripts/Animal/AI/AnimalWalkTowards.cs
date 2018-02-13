@@ -49,6 +49,14 @@ public class AnimalWalkTowards : AnimalBehavior
                 Debug.Log("animal reached den and despawned");
                 Destroy(gameObject);
             }
+            //CONSTRUCTION ZONE
+            //pop the current walk to target if the target is what we just reached
+            else if (target == manager.walkToTargets.Peek())
+            {
+                manager.walkToTargets.Pop();
+                target = manager.walkToTargets.Peek();
+            }
+            //END CONSTRUCTION ZONE
             manager.behaviors.Pop();
         }
     }

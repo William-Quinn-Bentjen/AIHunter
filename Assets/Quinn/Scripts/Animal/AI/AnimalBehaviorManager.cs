@@ -18,6 +18,11 @@ public class AnimalBehaviorManager : MonoBehaviour
     public bool Agressive = false;
     public float ChaseDistance = 4;
     private KeyAreas keyAreas;
+    [Header("Spawn behavior generation settings")]
+    public int minWander=1;
+    public int maxWander=1;
+    public int minWalkTo=1;
+    public int maxWalkTo=1;
     [HideInInspector]
     //animal vision
     public FieldOfView vision;
@@ -33,6 +38,10 @@ public class AnimalBehaviorManager : MonoBehaviour
     public AnimalChase chase;
     [Header("READ ONLY")]
     public AnimalBehavior CurrentBehavior;
+    private int wanderTotal;
+    private int walkToTotal;
+    [HideInInspector]
+    public Stack<GameObject> walkToTargets = new Stack<GameObject>();
 
 
 
@@ -48,8 +57,37 @@ public class AnimalBehaviorManager : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         behaviors = new Stack<AnimalBehavior>();
         hunter = GameObject.FindGameObjectWithTag("Hunter");
+        //CONSTRUCTION ZONE
+        //ADD BEHAVIORS
+        wanderTotal = Random.Range(minWander, maxWander);
+        walkToTotal = Random.Range(minWalkTo, maxWalkTo);
+        //set walk to targets
+        for (int i = 0; i < walkToTotal; i++)
+        {
+            walkToTargets.Push(keyAreas.GetRandomArea(true, false, false));
+        }
+        //add behaviors to stack in random order
+        int wanderTotalCounter = 0;
+        int walkToTotalCounter = 0;
+        for (int i = 0; i < wanderTotal + walkToTotal; i++)
+        {
+            //add wander
+            if (wanderTotalCounter < wanderTotal)
+            {
+                wanderTotalCounter++;
+                behaviors.Push(wander);
+            }
+            //add walk to
+            else if (walkToTotalCounter < walkToTotal)
+            {
+                walkToTotalCounter++;
+                behaviors.Push(walkTo);
+            }
+        }
+        //END CONSTRUCTION ZONE
+        //old spawn behaviors
         //behaviors.Push(evade);
-        walkTo.target = keyAreas.GetRandomArea(true,true,false);
+        walkTo.target = keyAreas.GetRandomArea(true,false,false);
         behaviors.Push(walkTo);
         behaviors.Push(wander);
     }

@@ -19,7 +19,7 @@ public class HunterCamp : MonoBehaviour {
             hunterInventory.rabbitDropOff();
             //heal hunter
             hunterHP.IncrementHP(HealAmount);
-            //add ammo to hunter inventory
+            //add ammo to hunter's inventory
             if(hunterWeapon.AmmoReserve + AmmoAmount <= hunterWeapon.MaxAmmoReserve)
             {
                 hunterWeapon.AmmoReserve += AmmoAmount;
