@@ -43,7 +43,7 @@ public class HunterReturn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (totalAmmo <= 0 || meat.rabbitMeat >= 5)
+        if (totalAmmo <= 0 || meat.rabbitMeat >= 5 || health.CurrentHP <= runHealth)
         {
            
             if(chase != null)
