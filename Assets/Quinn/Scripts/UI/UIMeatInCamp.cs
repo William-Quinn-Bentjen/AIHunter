@@ -10,13 +10,14 @@ public class UIMeatInCamp : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        camp = GameObject.FindGameObjectWithTag("KeyAreaHolder").GetComponent<KeyAreas>().HunterCamps[0].GetComponent<HunterCamp>();
+        camp = GameObject.FindGameObjectWithTag("HunterCamp").GetComponent<HunterCamp>();
+        output = GetComponent<Text>();
         initalText = output.text;
     }
 
     // Update is called once per frame
     void Update()
     {
-        output.text = initalText; //+ hunterInv.rabbitMeat;
+        output.text = initalText + camp.Meat;
     }
 }
