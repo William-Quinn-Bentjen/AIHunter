@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114528172399379454}
   m_Layer: 0
   m_Name: KeyAreaHolder
-  m_TagString: Untagged
+  m_TagString: KeyAreaHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233266761859926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 98.83849, y: 64.9, z: 427.42004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,4 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dc35415df985549a384247f12dee50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Areas: []
+  TaggedKeyAreas:
+  - {fileID: 0}
+  - {fileID: 0}
+  Dens:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  HunterCamps:
+  - {fileID: 0}

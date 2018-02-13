@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class HunterWander : MonoBehaviour {
 
     public GameObject target;
+    public int targetHealth;
     NavMeshAgent agent;
     Vector3 Hunter;
     Vector3 fwd;
@@ -32,7 +33,7 @@ public class HunterWander : MonoBehaviour {
         randomDirection += origin;
         NavMeshHit navHit;
 
-        NavMesh.SamplePosition(randomDirection, out navHit, distance, layermask);
+        NavMesh.SamplePosition(randomDirection, out navHit, distance, -1/*, layermask*/);
 
         return navHit.position;
     }
@@ -72,6 +73,7 @@ public class HunterWander : MonoBehaviour {
                 {
                     // Add Behavior when target seen
                     target = hit.collider.gameObject;
+                    targetHealth = target.GetComponent<Health>().CurrentHP;
                     GetComponent<HunterChase>().enabled = true;
                     GetComponent<HunterWander>().enabled = false;
                     Debug.Log("Target Detected");

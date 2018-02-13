@@ -68,7 +68,7 @@ public class HunterCamp : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
-	}
+	//}
 }
