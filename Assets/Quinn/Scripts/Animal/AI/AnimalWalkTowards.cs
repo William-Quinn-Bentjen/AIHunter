@@ -8,6 +8,10 @@ public class AnimalWalkTowards : AnimalBehavior
     public GameObject target;
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
+        if (manager.walkToTargets.Count > 0)
+        {
+            target = manager.walkToTargets.Peek();
+        }
         //logic
         if (target != null)
         {
@@ -54,7 +58,6 @@ public class AnimalWalkTowards : AnimalBehavior
             else if (target == manager.walkToTargets.Peek())
             {
                 manager.walkToTargets.Pop();
-                target = manager.walkToTargets.Peek();
             }
             //END CONSTRUCTION ZONE
             manager.behaviors.Pop();

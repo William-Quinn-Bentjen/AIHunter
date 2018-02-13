@@ -69,27 +69,50 @@ public class AnimalBehaviorManager : MonoBehaviour
         //add behaviors to stack in random order
         int wanderTotalCounter = 0;
         int walkToTotalCounter = 0;
-        for (int i = 0; i < wanderTotal + walkToTotal; i++)
+        //randomize walkto and wander
+        while (wanderTotalCounter < wanderTotal && walkToTotalCounter < walkToTotal)
         {
-            //add wander
-            if (wanderTotalCounter < wanderTotal)
+            //randomly select one of them but make sure not to screw up the count
+            //push wander if you can 
+            if (Random.Range(0, 1) == 0)
             {
-                wanderTotalCounter++;
-                behaviors.Push(wander);
+                //add wander
+                if (wanderTotalCounter < wanderTotal)
+                {
+                    wanderTotalCounter++;
+                    behaviors.Push(wander);
+                }
+                //add walk to
+                else
+                {
+                    walkToTotalCounter++;
+                    behaviors.Push(walkTo);
+                }
             }
-            //add walk to
-            else if (walkToTotalCounter < walkToTotal)
+            else
+            //push walk to if you can
             {
-                walkToTotalCounter++;
-                behaviors.Push(walkTo);
+                //add walk to
+                if (walkToTotalCounter < walkToTotal)
+                {
+                    walkToTotalCounter++;
+                    behaviors.Push(walkTo);
+                }
+                //add wander
+                else 
+                {
+                    wanderTotalCounter++;
+                    behaviors.Push(wander);
+                }
             }
         }
         //END CONSTRUCTION ZONE
         //old spawn behaviors
         //behaviors.Push(evade);
-        walkTo.target = keyAreas.GetRandomArea(true,false,false);
-        behaviors.Push(walkTo);
-        behaviors.Push(wander);
+        //START
+        //walkTo.target = keyAreas.GetRandomArea(true,false,false);
+        //behaviors.Push(walkTo);
+        //behaviors.Push(wander);
     }
     void DoBehavior()
     {
@@ -169,7 +192,8 @@ public class AnimalBehaviorManager : MonoBehaviour
                                     if (foundDeadAnimal)
                                     {
                                         //sets walkto target to the closest animal if no dead animals or hunters were found
-                                        walkTo.target = agressiontarget;
+                                        walkToTargets.Push(agressiontarget);
+                                        //walkTo.target = agressiontarget;
                                         behaviors.Push(walkTo);
                                     }
                                     else

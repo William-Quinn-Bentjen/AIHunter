@@ -41,10 +41,12 @@ public class Health : MonoBehaviour {
         if (CurrentHP <= 0)
         {
             OnZeroHP.Invoke();
+            CurrentHP = 0;
         }
         else if (CurrentHP > MaxHP)
         {
             OnOverHeal.Invoke();
+            CurrentHP = MaxHP;
         }
     }
 
