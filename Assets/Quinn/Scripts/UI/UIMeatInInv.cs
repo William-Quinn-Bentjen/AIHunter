@@ -10,6 +10,7 @@ public class UIMeatInInv : MonoBehaviour {
     // Use this for initialization
     void Start () {
         hunterInv = GameObject.FindGameObjectWithTag("Hunter").GetComponent<HunterInv>();
+        output = GetComponent<Text>();
         initalText = output.text;
     }
 	
