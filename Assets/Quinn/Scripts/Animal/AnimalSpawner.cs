@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class AnimalSpawner : MonoBehaviour {
     [Header("Den settings")]
     public GameObject Animal;
+    public bool VisibleAtStart = false;
     [Header("Time in between spawns")]
     public float minSpawnTimer = 10;
     public float maxSpawnTimer = 60;
@@ -15,6 +16,7 @@ public class AnimalSpawner : MonoBehaviour {
     [Header("NOTE if hunter is targeting animal it will automatically return to wander")]
     public MyEvent OnReturnToDen;
     //private
+    private Renderer rend;
     private float nextSpawnTime;
     private float spawnTimer;
 
@@ -24,6 +26,15 @@ public class AnimalSpawner : MonoBehaviour {
         nextSpawnTime = Random.Range(minSpawnTimer, maxSpawnTimer);
         GameObject spawnedAnimal = Instantiate(Animal, transform.position, transform.rotation);
         spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den = gameObject;
+        rend = GetComponent<Renderer>();
+        if (VisibleAtStart)
+        {
+            rend.enabled = true;
+        }
+        else
+        {
+            rend.enabled = false;
+        }
         //Debug.Log("spawned animal at " + spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den);
         //Debug.Log("spawned an animal at \n" + transform.position);
     }

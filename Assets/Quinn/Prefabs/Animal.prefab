@@ -2221,7 +2221,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768880004070526}
-  m_LocalRotation: {x: -0.40243468, y: 0.87597275, z: -0.1110165, w: 0.24164757}
+  m_LocalRotation: {x: -0.40243462, y: 0.8759726, z: -0.11101648, w: 0.24164754}
   m_LocalPosition: {x: -0.009905791, y: 0.005861556, z: -0.0063711833}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
   m_Children:
@@ -3166,6 +3166,10 @@ MonoBehaviour:
   SpookDistance: 3
   Agressive: 0
   ChaseDistance: 4
+  minWander: 1
+  maxWander: 5
+  minWalkTo: 1
+  maxWalkTo: 5
   vision: {fileID: 0}
   evade: {fileID: 0}
   walkTo: {fileID: 0}

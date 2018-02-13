@@ -11,6 +11,7 @@ TagManager:
   - DeadAnimal
   - Den
   - HunterCamp
+  - Sound
   layers:
   - Default
   - TransparentFX

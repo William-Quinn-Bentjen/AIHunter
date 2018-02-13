@@ -41,6 +41,14 @@ public class KeyArea : MonoBehaviour {
                 {
                     //animal arrived and behavior poped
                     manager.behaviors.Pop();
+                    //do I need to pop a walk to target too?
+                    if (manager.walkToTargets.Count > 0)
+                    {
+                        if (manager.walkToTargets.Peek() == gameObject)
+                        {
+                            manager.walkToTargets.Pop();
+                        }
+                    }
                 }
             }
         }

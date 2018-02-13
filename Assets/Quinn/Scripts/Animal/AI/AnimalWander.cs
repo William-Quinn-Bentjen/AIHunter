@@ -27,6 +27,8 @@ public class AnimalWander : AnimalBehavior {
         if (CheckBehavior(manager))
         {
             manager.behaviors.Pop();
+            targetWanderTime = Random.Range(minWanderTime, maxWanderTime);
+            wanderTime = 0;
         }
     }
     public override bool CheckBehavior(AnimalBehaviorManager manager)

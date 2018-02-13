@@ -26,12 +26,16 @@ public class DeadAnimalPickup : MonoBehaviour {
                 hunter.GetComponent<HunterInv>().collectRabbitMeat();
                 hunter.GetComponent<HunterWander>().enabled = true;
                 hunter.GetComponent<HunterChase>().enabled = false;
+                hunter.GetComponent<HunterChase>().chaseTarget = null;
+                hunter.GetComponent<HunterWander>().target = null;
             }
             //was hunter walking to this object? if so tell him to wander instead
             if (hunter.GetComponent<HunterChase>().enabled == true && hunter.GetComponent<HunterChase>().chaseTarget == gameObject)
             {
                 hunter.GetComponent<HunterWander>().enabled = true;
                 hunter.GetComponent<HunterChase>().enabled = false;
+                hunter.GetComponent<HunterChase>().chaseTarget = null;
+                hunter.GetComponent<HunterWander>().target = null;
             }
             Destroy(gameObject);
         }
