@@ -63,7 +63,6 @@ public class AnimalChase : AnimalBehavior {
         }
         else
         {
-
             return true;
         }
         return false;
@@ -86,7 +85,7 @@ public class AnimalChase : AnimalBehavior {
         }
         else
         {
-            distance = Vector3.Distance(target.transform.position, gameObject.transform.position);
+            distance = Vector3.Distance(target.transform.position, transform.position);
         }
     }
     private void UpdateAttackSpeedTimer()

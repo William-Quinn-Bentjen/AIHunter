@@ -8,6 +8,10 @@ public class AnimalWalkTowards : AnimalBehavior
     public GameObject target;
     public override void DoBehavior(AnimalBehaviorManager manager)
     {
+        if (manager.walkToTargets.Count > 0)
+        {
+            target = manager.walkToTargets.Peek();
+        }
         //logic
         if (target != null)
         {
@@ -49,6 +53,13 @@ public class AnimalWalkTowards : AnimalBehavior
                 Debug.Log("animal reached den and despawned");
                 Destroy(gameObject);
             }
+            //CONSTRUCTION ZONE
+            //pop the current walk to target if the target is what we just reached
+            else if (target == manager.walkToTargets.Peek())
+            {
+                manager.walkToTargets.Pop();
+            }
+            //END CONSTRUCTION ZONE
             manager.behaviors.Pop();
         }
     }

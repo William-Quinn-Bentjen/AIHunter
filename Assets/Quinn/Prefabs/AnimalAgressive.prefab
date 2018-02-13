@@ -1378,6 +1378,10 @@ MonoBehaviour:
   SpookDistance: 3
   Agressive: 1
   ChaseDistance: 4
+  minWander: 1
+  maxWander: 5
+  minWalkTo: 1
+  maxWalkTo: 5
   vision: {fileID: 0}
   evade: {fileID: 0}
   walkTo: {fileID: 0}

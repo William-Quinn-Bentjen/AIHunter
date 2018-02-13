@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animal: {fileID: 1867621514490116, guid: 42d4519ff65fa1c4fb9a1c78d43cb0bf, type: 2}
+  VisibleAtStart: 0
   minSpawnTimer: 3
   maxSpawnTimer: 6
   OnReturnToDen:
