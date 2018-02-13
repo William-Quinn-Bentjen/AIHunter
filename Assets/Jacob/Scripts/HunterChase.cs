@@ -35,12 +35,17 @@ public class HunterChase : MonoBehaviour {
         agent.destination = chaseTarget.transform.position;
         distance = Vector3.Distance(transform.position, chaseTarget.transform.position);
 
-        if (distance <= gunDistance)
+       
+        if (distance <= gunDistance && distance > (gunDistance / 4))
         {
             QuinnGun Fire = gameObject.GetComponent<QuinnGun>();
             gun.Fire();
         }
-        else if (distance > viewRange || chaseTarget == null)
+        else if (distance < (gunDistance / 3))
+        {
+            agent.destination = -(chaseTarget.transform.position);
+        }
+        if (distance > viewRange || chaseTarget == null)
         {
             hunterWander.enabled = true;
             hunterWander.target = null;

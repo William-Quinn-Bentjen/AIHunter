@@ -32,7 +32,7 @@ public class HunterWander : MonoBehaviour {
         randomDirection += origin;
         NavMeshHit navHit;
 
-        NavMesh.SamplePosition(randomDirection, out navHit, distance, layermask);
+        NavMesh.SamplePosition(randomDirection, out navHit, distance, -1/*, layermask*/);
 
         return navHit.position;
     }
