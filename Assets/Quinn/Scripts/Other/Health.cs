@@ -12,7 +12,8 @@ public class Health : MonoBehaviour {
     public MyEvent OnOverHeal;
     public MyEvent OnZeroHP;
     public GameObject DeadAnimal;
-
+    public GameObject AgressiveAnimalDeathSound;
+    public GameObject AnimalDeathSound;
     // Use this for initialization
     void Start () {
         CurrentHP = MaxHP;
@@ -56,9 +57,19 @@ public class Health : MonoBehaviour {
         Debug.Log("ANIMAL KILLED AT\n"+gameObject.transform.position);
         //stores transform info so the dead animal doesn't spawn with it's live self inside it
         Transform DeathPos = gameObject.transform;
+        //play sound
+        if (GetComponent<AnimalBehaviorManager>().Agressive)
+        {
+            Instantiate(AgressiveAnimalDeathSound, DeathPos.position, DeathPos.rotation);
+        }
+        else
+        {
+            Instantiate(AnimalDeathSound, DeathPos.position, DeathPos.rotation);
+        }
         //destroy live animal 
         Destroy(gameObject);
         //create dead animal prefab where the animal was at
         Instantiate(DeadAnimal, DeathPos.position, DeathPos.rotation);
+        
     }
 }

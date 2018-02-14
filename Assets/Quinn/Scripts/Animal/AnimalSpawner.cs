@@ -11,6 +11,7 @@ public class AnimalSpawner : MonoBehaviour {
     [Header("Time in between spawns")]
     public float minSpawnTimer = 10;
     public float maxSpawnTimer = 60;
+    public bool spawnOnStart = false;
     [System.Serializable]
     public class MyEvent : UnityEvent { }
     [Header("NOTE if hunter is targeting animal it will automatically return to wander")]
@@ -26,6 +27,21 @@ public class AnimalSpawner : MonoBehaviour {
         nextSpawnTime = Random.Range(minSpawnTimer, maxSpawnTimer);
         GameObject spawnedAnimal = Instantiate(Animal, transform.position, transform.rotation);
         spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den = gameObject;
+        //Debug.Log("spawned animal at " + spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den);
+        //Debug.Log("spawned an animal at \n" + transform.position);
+    }
+
+	// Use this for initialization
+	void Start () {
+        if (spawnOnStart)
+        {
+            SpawnAnimal();
+        }
+        else
+        {
+            nextSpawnTime = Random.Range(minSpawnTimer, maxSpawnTimer);
+        }
+
         rend = GetComponent<Renderer>();
         if (VisibleAtStart)
         {
@@ -35,14 +51,7 @@ public class AnimalSpawner : MonoBehaviour {
         {
             rend.enabled = false;
         }
-        //Debug.Log("spawned animal at " + spawnedAnimal.GetComponent<AnimalBehaviorManager>().Den);
-        //Debug.Log("spawned an animal at \n" + transform.position);
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
