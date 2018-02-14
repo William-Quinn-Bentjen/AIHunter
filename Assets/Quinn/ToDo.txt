@@ -1,0 +1,12 @@
+UI 
+	hunter HP
+	meat 
+	ammo in mag
+	ammo in reserve
+	meat at camp
+SOUND
+	camp sounds 
+	hunter sounds
+VISUAL EFFECTS 
+	laser 
+	menu
