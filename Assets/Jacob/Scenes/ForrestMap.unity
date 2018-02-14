@@ -1489,7 +1489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisibleAtStart: 0
   Meat: 0
-  HealAmount: 5
+  Cooldown: 0.5
+  HealAmount: 1
   AmmoAmount: 5
   OnMeatDrop:
     m_PersistentCalls:
