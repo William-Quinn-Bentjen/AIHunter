@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundSourceManager : MonoBehaviour {
+    public bool DestroyAfterPlay = false;
+    public bool PlayOnAwake = false;
+    private bool played;
     AudioSource source;
 	// Use this for initialization
 	void Start () {
         source = GetComponent<AudioSource>();
+        if (PlayOnAwake)
+        {
+            source.playOnAwake = false;
+            Play(true);
+        }
 	}
     //used to play the sound connected to this object
 	public void Play(bool restartIfPlaying = false)
     {
+        played = true;
         //should I play the sound if it's already playing
         if (source.isPlaying && restartIfPlaying == false)
         {
@@ -35,6 +44,16 @@ public class SoundSourceManager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		
+        if(DestroyAfterPlay)
+        {
+            if (source.isPlaying == false)
+            {
+                //sound not playing and it has already played 
+                if (played)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
 	}
 }
