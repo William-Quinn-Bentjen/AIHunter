@@ -16,6 +16,7 @@ public class HunterChase : MonoBehaviour
     QuinnGun gun;
     Vector3 fwd;
     public float length;
+    public float turnSpeed = .01f;
 
     HunterWander hunterWander;
 
@@ -77,7 +78,10 @@ public class HunterChase : MonoBehaviour
          if (distance <= gunDistance)
          {
              QuinnGun Fire = gameObject.GetComponent<QuinnGun>();
-             gun.Fire();
+            Vector3 pos = chaseTarget.transform.position -transform.position;
+            var newRot = Quaternion.LookRotation(pos);
+            transform.rotation = Quaternion.Lerp(transform.rotation, newRot, turnSpeed);
+            gun.Fire();
          }
 
          else if (distance > viewRange || chaseTarget == null)
