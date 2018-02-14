@@ -34,7 +34,6 @@ public class HunterReturn : MonoBehaviour {
         meat = Hunter.GetComponent<HunterInv>();
         maxHealth = health.MaxHP;
         currentHealth = health.CurrentHP;
-        totalAmmo = ammo.AmmoReserve;
         ammoMax = ammo.MaxAmmoReserve;
         totalMeat = meat.rabbitMeat;
         chase = GetComponent<HunterChase>();
@@ -43,7 +42,7 @@ public class HunterReturn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (totalAmmo <= 0 || meat.rabbitMeat >= 5 || health.CurrentHP <= runHealth)
+        if (ammo.AmmoReserve <= 0 || meat.rabbitMeat >= 5 || health.CurrentHP <= runHealth)
         {
            
             if(chase != null)
@@ -77,12 +76,12 @@ public class HunterReturn : MonoBehaviour {
             agent.destination = homeBase.transform.position;
             agent.speed = agent.speed * 2;
 
-            if (totalAmmo == ammoMax && currentHealth == maxHealth)
-            {
-                speed = hunterSpeed;
-                GetComponent<HunterWander>().enabled = true;
+            //if (totalAmmo == ammoMax && currentHealth == maxHealth)
+            //{
+            //    speed = hunterSpeed;
+            //    GetComponent<HunterWander>().enabled = true;
 
-            }
+            //}
         }
 	}
 }

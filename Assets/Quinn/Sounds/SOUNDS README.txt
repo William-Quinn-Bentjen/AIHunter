@@ -14,3 +14,9 @@ https://freesound.org/people/Kodack/sounds/256912/
 
 HEAL.MP3
 https://freesound.org/people/Bychop/sounds/136881/
+
+RhinoDeath
+https://www.youtube.com/watch?v=LNCC6ZYI3SI
+
+LizardDeath
+https://www.youtube.com/watch?v=0Q_1KW0Q-10
