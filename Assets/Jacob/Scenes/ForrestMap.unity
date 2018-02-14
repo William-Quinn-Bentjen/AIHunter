@@ -77,18 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -110,8 +107,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 7e5b217c79aab7f4ab7b0801e902fd35, type: 2}
 --- !u!114 &21182540 stripped
 MonoBehaviour:
@@ -220,6 +215,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -481,7 +490,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1867621514490116, guid: 42d4519ff65fa1c4fb9a1c78d43cb0bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42d4519ff65fa1c4fb9a1c78d43cb0bf, type: 2}
@@ -883,7 +892,7 @@ Prefab:
     - target: {fileID: 114494522203656934, guid: 2fb6a291535ba6d44bf65caefcf5b482,
         type: 2}
       propertyPath: OnZeroHP.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: DeathScene
       objectReference: {fileID: 0}
     - target: {fileID: 4909634476165710, guid: 2fb6a291535ba6d44bf65caefcf5b482, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -932,6 +941,16 @@ Prefab:
         type: 2}
       propertyPath: moveWithTransform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 195434125255892864, guid: 2fb6a291535ba6d44bf65caefcf5b482,
+        type: 2}
+      propertyPath: m_AngularSpeed
+      value: 325
+      objectReference: {fileID: 0}
+    - target: {fileID: 114454574288099776, guid: 2fb6a291535ba6d44bf65caefcf5b482,
+        type: 2}
+      propertyPath: turnSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 82613486296490790, guid: 2fb6a291535ba6d44bf65caefcf5b482, type: 2}
@@ -1214,7 +1233,6 @@ MeshRenderer:
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1230,7 +1248,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1248,9 +1265,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Convex: 0
-  m_CookingOptions: 14
+  m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &1402600933
@@ -1522,7 +1539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisibleAtStart: 0
   Meat: 0
-  HealAmount: 5
+  Cooldown: 0.5
+  HealAmount: 1
   AmmoAmount: 5
   OnMeatDrop:
     m_PersistentCalls:
